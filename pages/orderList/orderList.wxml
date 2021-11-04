@@ -1,0 +1,176 @@
+<!--pages/orderList/orderList.wxml-->
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.id ? 'on' : ''}}"
+    data-current="{{item.id}}"
+    bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+
+<swiper current="{{currtab}}" style="height:{{deviceH-31}}px" bindchange="onTabChange">
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height: 100%;">
+      <view class="container-0">
+        <view class="order" wx:for="{{allOrderS}}" wx:key="{{item.orderid}}" wx:for-item="order">
+          <view class="orderNumber">订单编号：{{order.order_id}}</view>
+          <view class="orderStatus">{{order.order_status_name}}</view>
+          <view class="orderList" wx:key="item.index" bindtap="orderDetailShow" data-orderid="{{order.order_id}}">
+              <image src='{{order.get_productgoods.show_img}}'></image>
+              <view class='orderDetail'>
+                <view class='orderTitle'>{{order.get_productgoods.title}}</view>
+                <view class='orderStyle'>
+                  <!-- <view class="orderColor">{{order.pay_price}}</view> -->
+                  <!-- <view class="orderSize">{{item.size}},</view>
+                  <view class="orderUnit">{{item.unit}}</view> -->
+                </view>
+              </view>
+              <view class='orderInfor'>
+                <view class='orderPrice'>{{order.pay_price}}</view>
+                <view class='orderNum'>{{order.buy_number}}</view>
+              </view>
+          </view>
+          <view class='orderSumPri'>
+            共{{order.buy_number}}件商品 合计：
+            <view class='orderPri'>{{order.pay_price*order.buy_number}}元</view>
+          </view>
+          <!-- <view class="orderHander">
+            <view class="orderCancel" bindtap="orderHandleOne" hidden="{{ifhiddenone}}">{{orderHandleOne}}</view>
+            <view class="orderConfirm" bindtap="orderHandleTwo" hidden="{{ifhiddentwo}}">{{orderHandleTwo}}</view>
+          </view> -->
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height: 100%;">
+      <view class="container-0">
+        <view class="order" wx:for="{{waitPayOrder}}" wx:key="{{item.orderid}}" wx:for-item="order">
+          <view class="orderNumber">订单编号：{{order.order_id}}</view>
+          <view class="orderStatus">{{order.order_status_name}}</view>
+          <view class="orderList" wx:key="item.index" bindtap="orderDetailShow" data-orderid="{{order.order_id}}">
+              <image src='{{order.get_productgoods.show_img}}'></image>
+              <view class='orderDetail'>
+                <view class='orderTitle'>{{order.get_productgoods.title}}</view>
+                <view class='orderStyle'>
+                  <!-- <view class="orderColor">{{order.pay_price}}</view> -->
+                  <!-- <view class="orderSize">{{item.size}},</view>
+                  <view class="orderUnit">{{item.unit}}</view> -->
+                </view>
+              </view>
+              <view class='orderInfor'>
+                <view class='orderPrice'>{{order.pay_price}}</view>
+                <view class='orderNum'>{{order.buy_number}}</view>
+              </view>
+          </view>
+          <view class='orderSumPri'>
+            共{{order.buy_number}}件商品 合计：
+            <view class='orderPri'>{{order.pay_price*order.buy_number}}元</view>
+          </view>
+          <!-- <view class="orderHander">
+            <view class="orderCancel" bindtap="orderHandleOne" hidden="{{ifhiddenone}}">{{orderHandleOne}}</view>
+            <view class="orderConfirm" bindtap="orderHandleTwo" hidden="{{ifhiddentwo}}">{{orderHandleTwo}}</view>
+          </view> -->
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height: 100%;">
+      <view class="container-0">
+        <view class="order" wx:for="{{waitSentOrder}}" wx:key="{{item.orderid}}" wx:for-item="order">
+          <view class="orderNumber">订单编号：{{order.order_id}}</view>
+          <view class="orderStatus">{{order.order_status_name}}</view>
+          <view class="orderList" wx:key="item.index" bindtap="orderDetailShow" data-orderid="{{order.order_id}}">
+              <image src='{{order.get_productgoods.show_img}}'></image>
+              <view class='orderDetail'>
+                <view class='orderTitle'>{{order.get_productgoods.title}}</view>
+                <view class='orderStyle'>
+                  <!-- <view class="orderColor">{{order.pay_price}}</view> -->
+                  <!-- <view class="orderSize">{{item.size}},</view>
+                  <view class="orderUnit">{{item.unit}}</view> -->
+                </view>
+              </view>
+              <view class='orderInfor'>
+                <view class='orderPrice'>{{order.pay_price}}</view>
+                <view class='orderNum'>{{order.buy_number}}</view>
+              </view>
+          </view>
+          <view class='orderSumPri'>
+            共{{order.buy_number}}件商品 合计：
+            <view class='orderPri'>{{order.pay_price*order.buy_number}}元</view>
+          </view>
+          <!-- <view class="orderHander">
+            <view class="orderCancel" bindtap="orderHandleOne" hidden="{{ifhiddenone}}">{{orderHandleOne}}</view>
+            <view class="orderConfirm" bindtap="orderHandleTwo" hidden="{{ifhiddentwo}}">{{orderHandleTwo}}</view>
+          </view> -->
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height: 100%;">
+      <view class="container-0">
+        <view class="order" wx:for="{{waitReceivedOrder}}" wx:key="{{item.orderid}}" wx:for-item="order">
+          <view class="orderNumber">订单编号：{{order.order_id}}</view>
+          <view class="orderStatus">{{order.order_status_name}}</view>
+          <view class="orderList" wx:key="item.index" bindtap="orderDetailShow" data-orderid="{{order.order_id}}">
+              <image src='{{order.get_productgoods.show_img}}'></image>
+              <view class='orderDetail'>
+                <view class='orderTitle'>{{order.get_productgoods.title}}</view>
+                <view class='orderStyle'>
+                  <!-- <view class="orderColor">{{order.pay_price}}</view> -->
+                  <!-- <view class="orderSize">{{item.size}},</view>
+                  <view class="orderUnit">{{item.unit}}</view> -->
+                </view>
+              </view>
+              <view class='orderInfor'>
+                <view class='orderPrice'>{{order.pay_price}}</view>
+                <view class='orderNum'>{{order.buy_number}}</view>
+              </view>
+          </view>
+          <view class='orderSumPri'>
+            共{{order.buy_number}}件商品 合计：
+            <view class='orderPri'>{{order.pay_price*order.buy_number}}元</view>
+          </view>
+          <!-- <view class="orderHander">
+            <view class="orderCancel" bindtap="orderHandleOne" hidden="{{ifhiddenone}}">{{orderHandleOne}}</view>
+            <view class="orderConfirm" bindtap="orderHandleTwo" hidden="{{ifhiddentwo}}">{{orderHandleTwo}}</view>
+          </view> -->
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height: 100%;">
+      <view class="container-0">
+        <view class="order" wx:for="{{completeOrder}}" wx:key="{{item.orderid}}" wx:for-item="order">
+          <view class="orderNumber">订单编号：{{order.order_id}}</view>
+          <view class="orderStatus">{{order.order_status_name}}</view>
+          <view class="orderList" wx:key="item.index" bindtap="orderDetailShow" data-orderid="{{order.order_id}}">
+              <image src='{{order.get_productgoods.show_img}}'></image>
+              <view class='orderDetail'>
+                <view class='orderTitle'>{{order.get_productgoods.title}}</view>
+                <view class='orderStyle'>
+                  <!-- <view class="orderColor">{{order.pay_price}}</view> -->
+                  <!-- <view class="orderSize">{{item.size}},</view>
+                  <view class="orderUnit">{{item.unit}}</view> -->
+                </view>
+              </view>
+              <view class='orderInfor'>
+                <view class='orderPrice'>{{order.pay_price}}</view>
+                <view class='orderNum'>{{order.buy_number}}</view>
+              </view>
+          </view>
+          <view class='orderSumPri'>
+            共{{order.buy_number}}件商品 合计：
+            <view class='orderPri'>{{order.pay_price*order.buy_number}}元</view>
+          </view>
+          <!-- <view class="orderHander">
+            <view class="orderCancel" bindtap="orderHandleOne" hidden="{{ifhiddenone}}">{{orderHandleOne}}</view>
+            <view class="orderConfirm" bindtap="orderHandleTwo" hidden="{{ifhiddentwo}}">{{orderHandleTwo}}</view>
+          </view> -->
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

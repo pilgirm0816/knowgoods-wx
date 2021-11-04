@@ -1,0 +1,177 @@
+/* pages/orderList/orderList.wxss */
+/* pages/myorder/myorder.wxss */
+.on {
+  color: red;
+  border-bottom:2px solid red;
+}
+
+swiper {
+  height: auto;
+}
+
+.swiper-tab {
+  width: 750rpx;
+  height: 80rpx;
+  background: #f5f7f9;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5rpx;
+  margin-bottom: 36rpx;
+}
+
+.swiper-tab view {
+  width: 90rpx;
+  height: 80rpx;
+  font: 30rpx/76rpx "";
+  color: #333;
+  text-align: center;
+}
+
+.container-0 {
+  box-sizing: border-box;
+
+}
+
+.container-1 {
+  box-sizing: border-box;
+}
+
+.container-2 {
+  box-sizing: border-box;
+}
+.container-3 {
+  box-sizing: border-box;
+}
+
+.container-4 {
+  box-sizing: border-box;
+}
+
+.orderNumber {
+  float: left;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+
+}
+
+.orderStatus {
+  float: right;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  padding-right: 19rpx;
+  color: orangered;
+}
+
+.order {
+  box-sizing: border-box;
+  width: 678rpx;
+  background: #e6e6e6;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  padding-bottom: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.order .orderList {
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  padding-top: 32rpx;
+  padding-left: 20rpx;
+}
+
+.orderDetail {
+  margin-left: 21rpx;
+}
+
+.orderDetail .orderTitle {
+  width: 260rpx;
+  height: 62rpx;
+  font: 28rpx/28rpx "";
+  color: #333;
+}
+
+.orderDetail .orderStyle{
+  width: 103rpx;
+  height: 24rpx;
+  float: right;
+  font: 24rpx/24rpx '';
+  color: #999;
+  margin-top: 17rpx;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.orderInfor {
+  margin-left: 116rpx;
+}
+
+.orderInfor .orderPrice {
+  width: 98rpx;
+  height: 19rpx;
+  font-size: 24rpx;
+}
+
+.orderInfor .orderNum {
+  width: 30rpx;
+  height: 19rpx;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 26rpx;
+}
+
+.orderSumPri {
+  width: 286rpx;
+  height: 20rpx;
+  font: 22rpx/24rpx '';
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  margin-left: 385rpx;
+  margin-top: 10rpx;
+}
+
+.orderHander {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 379rpx;
+  padding-top: 10rpx;
+}
+
+.kk {
+  margin-left: 510rpx;
+}
+.orderCancel, .applyrefund{
+  width: 130rpx;
+  height: 35rpx;
+  font: 19rpx/35rpx "";
+  color: #333;
+  background: #fff;
+  text-align: center;
+  margin-right: 19rpx;
+  border-radius: 26rpx;
+  border: 1rpx solid #333;
+}
+.orderConfirm, .urgeSent, .confirmReceipt {
+  width: 130rpx;
+  height: 35rpx;
+  font: 19rpx/35rpx "";
+  color: #333;
+  background: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  border: 1rpx solid #333;
+}
+ .order .mou{
+  color: #FF9130;
+}
